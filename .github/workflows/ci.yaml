@@ -245,7 +245,7 @@ jobs:
   release-latest-gpu-operator-image:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} # Runs only if the event is a push to the main branch
     needs: [build-multi-arch-images]
-    runs-on: linux-amd64-cpu4
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         name: Check out code
@@ -271,7 +271,7 @@ jobs:
   push-gpu-operator-bundle-image:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} # Runs only if the event is a push to the main branch
     needs: [release-latest-gpu-operator-image]
-    runs-on: linux-amd64-cpu4
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         name: Check out code
